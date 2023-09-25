@@ -39,6 +39,27 @@ public class Calculator {
         System.out.println("Entrez une seconde valeur");
         operande2 = sc.nextInt();
         
+        int result = 0;
+        switch (operateur) {
+            case 1:
+                result= operande1+operande2;
+                break;
+            case 2:
+                result = operande1-operande2;
+                break;
+            case 3:
+                result= operande1*operande2;
+                break;
+            case 4:
+                result= operande1/operande2;
+                break;
+            case 5:
+                result= operande1%operande2;
+                break;
+            default:
+                break;
+        }
+        System.out.println("Le resultat est "+result);
     }
 
 }

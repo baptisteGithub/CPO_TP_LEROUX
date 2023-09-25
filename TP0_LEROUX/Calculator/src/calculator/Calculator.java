@@ -30,36 +30,44 @@ public class Calculator {
                 + "5) modulo");
         Scanner sc = new Scanner(System.in);
         operateur = sc.nextInt(); // On demande a sc de donner le prochain entier
-
+        if (operateur<1 || operateur>5) {
+            System.out.println("Erreur, vous n'avez pas choisi un operateur entre 1 et 5 ");
+            System.exit(0);
+            
+        }
         int operande1;
         int operande2;
-        
+
         System.out.println("Entrer une premiere valeur");
         operande1 = sc.nextInt();
         System.out.println("Entrez une seconde valeur");
         operande2 = sc.nextInt();
-        
+
         int result = 0;
         switch (operateur) {
             case 1:
-                result= operande1+operande2;
+                result = operande1 + operande2;
                 break;
             case 2:
-                result = operande1-operande2;
+                result = operande1 - operande2;
                 break;
             case 3:
-                result= operande1*operande2;
+                result = operande1 * operande2;
                 break;
             case 4:
-                result= operande1/operande2;
+                result = operande1 / operande2;
                 break;
             case 5:
-                result= operande1%operande2;
+                result = operande1 % operande2;
                 break;
             default:
+                System.out.println("Erreur, vous n'avez pas choisi un operateur entre 1 et 5!");
                 break;
         }
-        System.out.println("Le resultat est "+result);
+        if (operateur >= 1 && operateur <= 5) {
+            System.out.println("Le resultat est " + result);
+        }
     }
-
 }
+
+

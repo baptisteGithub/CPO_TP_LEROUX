@@ -2,6 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
+/*TP1
+MAnip Nombres Int
+Baptiste LEROUX
+TDB
+26/09/23
+*/
 package tp1_manipnombresint_leroux2;
 
 import java.util.Scanner;

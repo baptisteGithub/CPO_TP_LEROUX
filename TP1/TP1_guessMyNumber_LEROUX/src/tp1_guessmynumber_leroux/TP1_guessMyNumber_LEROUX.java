@@ -33,12 +33,12 @@ public class TP1_guessMyNumber_LEROUX {
 
         System.out.println("""
                            Choisissez le niveau de difficulte :
-                           1) Facile
-                           2) Moyen
-                           3) Difficile
-                           4) Cauchemar""");
+                           1) Facile (entre 0 et 10)
+                           2) Moyen (entre 0 et 100)
+                           3) Difficile (entre 0 et 1000)
+                           4) Cauchemar (entre 0 et 100, mais il y a 30% de chances que les instructions soient fausses)""");
         dif = sc.nextInt();
-        if (nb < 1 || nb > 4) {
+        if (dif < 1 || dif > 4) {
                 System.out.println("Erreur, vous n'avez pas choisi une difficulte valide");
                 System.exit(0);
         }
@@ -102,6 +102,40 @@ public class TP1_guessMyNumber_LEROUX {
                     System.out.println("trop grand ");
                 }
                 System.out.println("Saisissez un nouveau nombre aleatoire entre 1 et 1000");
+                nb = sc.nextInt();
+                i = i + 1;
+            }
+            System.out.println("gagne!");
+            System.out.println("vous avez trouve en " + i + " tentatives");
+            
+        }
+        else if (dif==4){
+            int n = generateurAleat.nextInt(100);
+            System.out.println("Saisissez un nombre aleatoire entre 0 et 100");
+            nb = sc.nextInt();
+            if (nb < 0 || nb > 100) {
+                System.out.println("Erreur, vous n'avez pas choisi un nombre entre 0 et 100 ");
+                System.exit(0);
+            }
+            while (nb != n) {
+                if (nb < n) {
+                    int mau = generateurAleat.nextInt(9);
+                    if (mau >=0 && mau<=2 ) {
+                        System.out.println("trop grand ");
+                    }
+                    else if (mau>= 3){
+                        System.out.println("trop petit");
+                    }
+                } else if (nb > n) {
+                    int mau = generateurAleat.nextInt(9);
+                    if (mau >=0 && mau<=2 ) {
+                        System.out.println("trop petit");
+                    }
+                    else if (mau>= 3){
+                        System.out.println("trop grand ");
+                    }
+                }
+                System.out.println("Saisissez un nouveau nombre aleatoire entre 1 et 100");
                 nb = sc.nextInt();
                 i = i + 1;
             }

@@ -34,7 +34,7 @@ public class TP1_stats_LEROUX {
       
       for (int i=0;i<=m;i++) {
           Random generateurAleat = new Random();
-          int n = generateurAleat.nextInt(5);
+          int n = generateurAleat.nextInt(6);
           tab[n]+=1;
       }
       for (int i = 0; i < (tab.length); i++) {

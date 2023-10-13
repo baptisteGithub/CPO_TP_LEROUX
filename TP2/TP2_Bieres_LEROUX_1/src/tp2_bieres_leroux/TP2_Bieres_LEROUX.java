@@ -20,16 +20,25 @@ public class TP2_Bieres_LEROUX {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls", (float) 7.0,"Dubuisson") ;
-    uneBiere.lireEtiquette ();
+    BouteilleBiere uneBiere = new BouteilleBiere("Cuvee des trolls", (float) 7.0,"Dubuisson") ;
+    //uneBiere.lireEtiquette ();
     
     
     BouteilleBiere deuxiemeBiere = new BouteilleBiere("Leffe", (float) 6.6, "Abbaye de Leffe");
-    deuxiemeBiere.lireEtiquette();
+    //deuxiemeBiere.lireEtiquette();
+    
+    BouteilleBiere troisiemeBiere = new BouteilleBiere("Heineken", (float) 5, "Heineken Original");
     
     
     
+    uneBiere.Decapsuler();
+    deuxiemeBiere.Decapsuler();
+    troisiemeBiere.Decapsuler();
+    //System.out.println(uneBiere.ouverte);
     
+    System.out.println(uneBiere) ; 
+    System.out.println(deuxiemeBiere);
+    System.out.println(troisiemeBiere);
     }
     
 }

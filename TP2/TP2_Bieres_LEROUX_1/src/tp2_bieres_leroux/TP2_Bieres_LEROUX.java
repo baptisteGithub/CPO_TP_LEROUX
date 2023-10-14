@@ -29,16 +29,18 @@ public class TP2_Bieres_LEROUX {
     
     BouteilleBiere troisiemeBiere = new BouteilleBiere("Heineken", (float) 5, "Heineken Original");
     
-    
+    BouteilleBiere quatriemeBiere = new BouteilleBiere("1664", (float)5.5, "Kronembourg");
     
     uneBiere.Decapsuler();
     deuxiemeBiere.Decapsuler();
     troisiemeBiere.Decapsuler();
+    quatriemeBiere.Decapsuler();
     //System.out.println(uneBiere.ouverte);
     
     System.out.println(uneBiere) ; 
     System.out.println(deuxiemeBiere);
     System.out.println(troisiemeBiere);
+    System.out.println(quatriemeBiere);
     }
     
 }

@@ -26,9 +26,26 @@ public class BouteilleBiere {
     ouverte = false;
 }
     public boolean Decapsuler(){
-        boolean r;
-        return false;
+        boolean r = false;
+        if (ouverte == false){
+            ouverte = true;
+            r=true;
+        }
+        else if (ouverte == true){
+            System.out.println("Erreur : biere deja ouverte");
+            r=false;
+            
+        }
+        return r;
     }
-
+    
+    @Override
+    public String toString() {
+        String chaine_a_retourner;
+        chaine_a_retourner = nom + " (" + degreAlcool + " degres) Ouverte ? "; 
+    if (ouverte == true ) chaine_a_retourner += "oui" ;
+    else chaine_a_retourner += "non" ;
+    return chaine_a_retourner ;
+}
 
 }

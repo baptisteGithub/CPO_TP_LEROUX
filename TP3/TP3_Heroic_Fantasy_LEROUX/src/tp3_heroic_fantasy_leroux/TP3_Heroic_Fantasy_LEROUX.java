@@ -6,6 +6,8 @@ package tp3_heroic_fantasy_leroux;
 
 import Armes.Baton;
 import Armes.Epee;
+import Personnages.Guerrier;
+import Personnages.Magicien;
 import java.util.ArrayList;
 
 /**
@@ -38,8 +40,22 @@ public class TP3_Heroic_Fantasy_LEROUX {
         
         int tailleDeTab = listeArmes.size();
         for (int i=0; i<tailleDeTab;i++){
-            System.out.println(listeArmes.get(i));
-        }
+            System.out.println(listeArmes.get(i));}
+        
+        Magicien magicien1 = new Magicien("Gandalf", 65, true);
+        Magicien magicien2 = new Magicien("Garcimore", 44, false);
+        Guerrier guerrier1 = new Guerrier("Conan",78,false);
+        Guerrier guerrier2 = new Guerrier("Lannister", 45,true);
+        
+        ArrayList<Object> listePersonnages = new ArrayList<>();
+        listePersonnages.add(magicien1);
+        listePersonnages.add(magicien2);
+        listePersonnages.add(guerrier1);
+        listePersonnages.add(guerrier2);
+        
+        int tailleDeTab2 = listePersonnages.size();
+        for (int i=0; i<tailleDeTab2;i++){
+            System.out.println(listePersonnages.get(i));}
         
     }
     

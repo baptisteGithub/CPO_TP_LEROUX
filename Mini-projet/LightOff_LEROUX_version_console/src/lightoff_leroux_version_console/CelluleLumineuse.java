@@ -12,25 +12,27 @@ package lightoff_leroux_version_console;
 public class CelluleLumineuse {
    
     
-     boolean etat;
-     String nom;
+     private boolean etat;
      
     /**
-     *
-     * @param unEtat
+     *constructeur qui initialise par défaut l'état à false(eteinte)
      */
-    public CelluleLumineuse(String unNom,boolean unEtat){
-        nom = unNom;
-        etat= unEtat;
+    public CelluleLumineuse(){
+        etat= false;
      }
-        
+    
     /**
-     *cette méthode allume la cellule
+     * cette méthode inverse l'etat de la cellule
      */
-    public void allumerCellule() {
-            etat= true;
-        }
-        
+    public void activerCellule(){
+         if (etat == true){
+             etat = false;
+         }
+         else if (etat == false){
+             etat = true;
+         }
+     }
+    
     /**
      *cette méthode eteinds la cellule
      */
@@ -38,13 +40,50 @@ public class CelluleLumineuse {
             etat = false;
         }
         
+    /**
+     * methode verifiant si la cellule est actuellement eteinte. renvoie true si elle est eteinte et false si ell est allumée.
+     * @return un boolean indiquant si la lampe est eteinte ou non
+     */
+    public boolean estEteint(){
+        boolean etatt = false;
+        if (etat == true){
+            etatt = false;
+        }
+        else if (etat == false){
+            etatt =  true;
+        }
+        return etatt;
+    } 
+    
+    /**
+     * retourne l'etat actuel de la cellule
+     * @return l'etat de la cellule
+     */
+    public boolean getEtat(){
+        return etat;
+    }
+    
+    /**
+     *  retourne " x " si la cellule est allumée, et " O " si la cellule est éteinte
+     * @return une croix ou un rond
+     */
+    @Override
+    public String toString() {
+        String etatSt = " ";
+        if (etat == true){
+            etatSt = " X ";
+        }
+        else if (etat == false){
+            etatSt = " O ";
+        }
+        return etatSt;
+    }
+    
+    /**
+     * methode que j'ai crée personnelement en supplement afin de tester mon code et visualiser dans quel etat est une cellule a un moment donné
+     */
     public void afficherEtat(){
-        if (etat == false){
-            System.out.println(nom+" : Eteinte");
-        }
-        else if (etat == true){
-            System.out.println(nom+" : Allumee");
-        }
+        System.out.println(etat);
     }
     
 }

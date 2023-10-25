@@ -14,9 +14,11 @@ public class LightOff_LEROUX_version_console {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CelluleLumineuse cellule1 = new CelluleLumineuse("Cellule1", false);
+        CelluleLumineuse cellule1 = new CelluleLumineuse();
+        cellule1.getEtat();
         cellule1.afficherEtat();
-        cellule1.allumerCellule();
+        cellule1.activerCellule();
+        cellule1.getEtat();
         cellule1.afficherEtat();
     }
     

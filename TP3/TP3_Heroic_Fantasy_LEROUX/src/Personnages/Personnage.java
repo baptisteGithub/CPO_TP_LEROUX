@@ -14,10 +14,16 @@ abstract class Personnage {
 
     String nom;
     int niveauVie;
+     static int compteurPersonnages = 0;
+    
+    static void nbPersonnages(){
+        System.out.println(compteurPersonnages);
+    }
 
     public Personnage(String unNom, int unNiveauVie) {
         nom = unNom;
         niveauVie = unNiveauVie;
+        compteurPersonnages = compteurPersonnages+1;
 
     }
 
@@ -36,7 +42,7 @@ abstract class Personnage {
         System.out.println(niveauVie);
     }
 
-    ArrayList<Object> tabArmes = new ArrayList<Object>();
+    ArrayList<Object> tabArmes = new ArrayList<>();
 
     public void ajouterArme(Object uneArme) {
         if (tabArmes.size() < 5) {
@@ -69,4 +75,6 @@ abstract class Personnage {
 
     }
 
+    
+    
 }

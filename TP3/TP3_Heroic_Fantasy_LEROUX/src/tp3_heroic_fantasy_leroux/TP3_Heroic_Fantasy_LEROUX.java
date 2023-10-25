@@ -67,7 +67,26 @@ public class TP3_Heroic_Fantasy_LEROUX {
         Baton baton2 = new Baton("Charme",5,6);
         Baton baton3 = new Baton("Rosier", 4, 2);
         
+        
+        guerrier2.ajouterArme(deuxiemeEpee);
+        guerrier2.ajouterArme(troisiemeEpee);
+        guerrier2.ajouterArme(baton1);
         magicien1.ajouterArme(premiereEpee);
+        magicien1.ajouterArme(baton2); 
+        magicien1.ajouterArme(baton3);
+        
+        
+        ArrayList<Object> listePersonnages = new ArrayList<>();
+        listePersonnages.add(magicien1);
+        listePersonnages.add(guerrier2);
+       
+        int tailleDeTab2 = listePersonnages.size();
+        for (int i=0; i<tailleDeTab2;i++){
+            System.out.println(listePersonnages.get(i));}
+        
+        
+        
+        
 
         /*int tailleDeTab2 = tabArmes.size();
         for (int i=0; i<tailleDeTab2;i++){

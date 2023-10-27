@@ -16,11 +16,12 @@ public class LightOff_LEROUX_version_console {
     public static void main(String[] args) {
         CelluleLumineuse cellule1 = new CelluleLumineuse();
         cellule1.getEtat();
-        cellule1.afficherEtat();
+        cellule1.afficherEtat(); 
         cellule1.activerCellule();
         cellule1.getEtat();
         cellule1.afficherEtat();
     }
     
-    //matriceCellules m = new matriceCellules(8,8);
+    GrilleDeCellules grille = new GrilleDeCellules();
+    //System.out.println(GrilleDeCellules);
 }

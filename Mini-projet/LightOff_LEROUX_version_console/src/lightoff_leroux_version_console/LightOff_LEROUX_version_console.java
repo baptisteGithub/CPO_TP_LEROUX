@@ -22,4 +22,5 @@ public class LightOff_LEROUX_version_console {
         cellule1.afficherEtat();
     }
     
+    //matriceCellules m = new matriceCellules(8,8);
 }

@@ -16,7 +16,7 @@ public class Partie {
     private int nbCoups;
 
     public Partie() {
-        grille = new GrilleDeCellules(8, 8);
+        grille = new GrilleDeCellules(2, 2);
         nbCoups = 0;
     }
 
@@ -37,12 +37,12 @@ public class Partie {
             String coup = scanner.nextLine();
             switch (coup) {
                 case "ligne" -> {
-                    System.out.print("Entrez le numéro de la ligne : ");
+                    System.out.print("Entrez le numero de la ligne : ");
                     int ligne = scanner.nextInt();
                     grille.activerLigneDeCellules(ligne);
                 }
                 case "colonne" -> {
-                    System.out.print("Entrez le numéro de la colonne : ");
+                    System.out.print("Entrez le numero de la colonne : ");
                     int colonne = scanner.nextInt();
                     grille.activerColonneDeCellules(colonne);
                 }
@@ -63,7 +63,7 @@ public class Partie {
         }
 
         if (grille.cellulesToutesEteintes()) {
-            System.out.println("Félicitations, vous avez éteint toutes les cellules en " + nbCoups + " coups !");
+            System.out.println("Felicitations, vous avez eteint toutes les cellules en " + nbCoups + " coups !");
         }
 
         scanner.close();

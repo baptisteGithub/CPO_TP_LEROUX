@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -23,7 +31,7 @@ public class GrilleDeCellules {
      * @param p_nbLignes
      * @param p_nbColonnes
      */
-    public void GrilleDeCellules(int p_nbLignes, int p_nbColonnes) {
+    public GrilleDeCellules(int p_nbLignes, int p_nbColonnes) {
         nbLignes = p_nbLignes;
         nbColonnes = p_nbColonnes;
 

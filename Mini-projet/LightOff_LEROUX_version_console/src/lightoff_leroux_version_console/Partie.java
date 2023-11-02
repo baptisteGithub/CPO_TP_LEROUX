@@ -16,7 +16,7 @@ public class Partie {
     private int nbCoups;
 
     public Partie() {
-        grille = new GrilleDeCellules(2, 2);
+        grille = new GrilleDeCellules(4, 4);
         nbCoups = 0;
     }
 
@@ -26,6 +26,7 @@ public class Partie {
 
     public void lancerPartie() {
         Scanner scanner = new Scanner(System.in);
+        Scanner scanner2 = new Scanner (System.in);
 
         System.out.println("Bienvenue dans le jeu LightOff!");
         initialiserPartie();
@@ -34,31 +35,32 @@ public class Partie {
         while (!grille.cellulesToutesEteintes()) {
 
             System.out.println("Entrez un coup (ligne, colonne, diagonale) : ");
-            String coup = scanner.nextLine();
-            switch (coup) {
-                case "ligne" -> {
+            String coup = scanner.next();
+            
+                if ("ligne".equals(coup)) {
                     System.out.print("Entrez le numero de la ligne : ");
                     int ligne = scanner.nextInt();
                     grille.activerLigneDeCellules(ligne);
+                    nbCoups++;
                 }
-                case "colonne" -> {
+                else if ("colonne".equals(coup)) {
                     System.out.print("Entrez le numero de la colonne : ");
                     int colonne = scanner.nextInt();
                     grille.activerColonneDeCellules(colonne);
+                    nbCoups++;
                 }
-                case "diagonale" -> {
+                else if ("diagonale".equals(coup) ){
                     System.out.println("montante ou descendante ? ");
-                    String diag = scanner.nextLine();
-                    switch (diag) {
-                        case "montante" -> grille.activerDiagonaleMontante();
-                        case "descendante" -> grille.activerDiagonaleDescendante();
-                        default -> System.out.println("Commande invalide.");
-                    }
-                }
-                default -> System.out.println("Commande invalide.");
+                    String diag = scanner2.nextLine();
+                        if ("montante".equals(diag)){ grille.activerDiagonaleMontante();}
+                        else if ("descendante".equals(diag)){ grille.activerDiagonaleDescendante();}
+                        else {System.out.println("Commande invalide.");}
+                    nbCoups++;
+                    }               
+                else { System.out.println("Commande invalide. Veuillez reessayer.");
             }
 
-            nbCoups++;
+            
             afficherGrille();
         }
 
@@ -66,7 +68,7 @@ public class Partie {
             System.out.println("Felicitations, vous avez eteint toutes les cellules en " + nbCoups + " coups !");
         }
 
-        scanner.close();
+        
     }
 
     private void afficherGrille() {

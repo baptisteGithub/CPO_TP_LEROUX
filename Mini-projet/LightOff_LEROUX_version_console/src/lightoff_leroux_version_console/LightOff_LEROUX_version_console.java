@@ -16,6 +16,11 @@ public class LightOff_LEROUX_version_console {
     public static void main(String[] args) {
 
         Partie partie = new Partie();
+        partie.definirRegles();
+        partie.choisirNiveau();
         partie.lancerPartie();
+        
+        
+        
     }
 }

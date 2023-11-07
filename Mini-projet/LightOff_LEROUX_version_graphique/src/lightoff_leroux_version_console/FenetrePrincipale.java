@@ -26,6 +26,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         initComponents();
         int nbLignes = 10;
         int nbColonnes = 10;
+        
 
         this.grille = new GrilleDeCellules(nbLignes, nbColonnes);
 
@@ -37,12 +38,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
             }
         }
+        
+        this.initialiserPartie();
 
         ///
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60,
                 nbColonnes * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
+        
+      
 
         PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
         getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 1 * 40, nbLignes * 40));
@@ -89,6 +94,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             PanneauBoutonsHorizontaux.add(bouton_colonne);
 
         }
+        
+        
 
     }
 
@@ -109,6 +116,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille = new javax.swing.JPanel();
         PanneauBoutonsVerticaux = new javax.swing.JPanel();
         PanneauBoutonsHorizontaux = new javax.swing.JPanel();
+        btnDiagonaleDescendante = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,8 +167,32 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauBoutonsHorizontaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 360, 40));
 
+        btnDiagonaleDescendante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiagonaleDescendanteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDiagonaleDescendante, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 40, 40));
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 40, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDiagonaleDescendanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagonaleDescendanteActionPerformed
+        this.grille.activerDiagonaleDescendante();
+        repaint();
+    }//GEN-LAST:event_btnDiagonaleDescendanteActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.grille.activerDiagonaleMontante();
+        repaint();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +225,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetrePrincipale().setVisible(true);
+                
             }
         });
     }
@@ -200,5 +234,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonsHorizontaux;
     private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton btnDiagonaleDescendante;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

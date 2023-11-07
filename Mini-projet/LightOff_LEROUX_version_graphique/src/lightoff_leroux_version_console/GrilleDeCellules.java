@@ -94,7 +94,7 @@ public class GrilleDeCellules {
         }
 
         for (int tour = 0; tour < nbTours; tour++) {
-            int activationType = random2.nextInt(3);
+            int activationType = random2.nextInt(4);
 
             if (activationType == 0) {
                 int ligneAleatoire = random2.nextInt(nbLignes);
@@ -106,10 +106,11 @@ public class GrilleDeCellules {
                 for (int i = 0; i < nbLignes; i++) {
                     matriceCellules[i][colonneAleatoire].activerCellule();
                 }
-            } else {
-                for (int i = 0; i < nbLignes && i < nbColonnes; i++) {
-                    matriceCellules[i][i].activerCellule();
-                }
+            }else if (activationType == 2){
+                activerDiagonaleDescendante();
+            } else if (activationType == 3) {
+                activerDiagonaleMontante();
+                
             }
         }
     }

@@ -17,7 +17,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     GrilleDeCellules grille;
     int nbCoups;
-int i;
+    int i;
+
     /**
      * Creates new form FenetrePrincipale
      */
@@ -44,16 +45,15 @@ int i;
         this.revalidate();
 
         PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
-        getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 1 * 40, nbLignes * 40));
+        getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 1 * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
 
         // création du panneau de boutons verticaux (pour les lignes) 
-        
         for (i = 0; i < nbLignes; i++) {
             JButton bouton_ligne = new JButton();
             ActionListener ecouteurClick = new ActionListener() {
-                
+
                 final int j = i;
 
                 @Override
@@ -66,19 +66,17 @@ int i;
             PanneauBoutonsVerticaux.add(bouton_ligne);
 
         }
-        
-        
+
         PanneauBoutonsHorizontaux.setLayout(new GridLayout(1, nbColonnes));
         getContentPane().add(PanneauBoutonsHorizontaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, nbColonnes * 40, 1 * 40));
         this.pack();
         this.revalidate();
-        
+
         // création du panneau de boutons horizontaux (pour les colonnes) 
-        
         for (i = 0; i < nbColonnes; i++) {
             JButton bouton_colonne = new JButton();
             ActionListener ecouteurClick = new ActionListener() {
-                
+
                 final int j = i;
 
                 @Override
@@ -130,7 +128,7 @@ int i;
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 360, 360));
 
-        PanneauBoutonsVerticaux.setBackground(new java.awt.Color(153, 153, 255));
+        PanneauBoutonsVerticaux.setBackground(new java.awt.Color(51, 255, 51));
 
         javax.swing.GroupLayout PanneauBoutonsVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonsVerticaux);
         PanneauBoutonsVerticaux.setLayout(PanneauBoutonsVerticauxLayout);

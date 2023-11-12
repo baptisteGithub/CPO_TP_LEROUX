@@ -19,6 +19,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     GrilleDeCellules grille;
     int nbCoups;
     int i;
+     int nbcoup = 0;
 
     /**
      * Creates new form FenetrePrincipale
@@ -64,6 +65,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     grille.activerLigneDeCellules(j);
                     repaint();
                     finPartie();
+                    incrementerNbcoup();
                 }
             };
             bouton_ligne.addActionListener(ecouteurClick);
@@ -88,6 +90,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     grille.activerColonneDeCellules(j);
                     repaint();
                     finPartie();
+                    incrementerNbcoup();
                 }
             };
             bouton_colonne.addActionListener(ecouteurClick);
@@ -99,7 +102,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
-        grille.melangerMatriceAleatoirement(1);
+        grille.melangerMatriceAleatoirement(15);
     }
 
     /**
@@ -186,22 +189,38 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.grille.activerDiagonaleDescendante();
         repaint();
         finPartie();
+        incrementerNbcoup();
     }//GEN-LAST:event_btnDiagonaleDescendanteActionPerformed
 
     private void btnDiagonaleMontanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagonaleMontanteActionPerformed
         this.grille.activerDiagonaleMontante();
         repaint();
         finPartie();
+        incrementerNbcoup();
     }//GEN-LAST:event_btnDiagonaleMontanteActionPerformed
 
+    /**
+     *methode qui s'active quand le jeu est gagné, ouvre la fenetre victoire et bloque les commandes
+     */
     public void finPartie() {
         if (grille.cellulesToutesEteintes() == true) {
             new FenetreVictoire().setVisible(true);
             desactiverBoutonsUtilisateurs();
         }
     }
+    
+    /**
+     *methode incrementant le nombre de coups
+     */
+    public void incrementerNbcoup(){
+        nbcoup = nbcoup + 1 ;
+        
+    }
 
-    private void desactiverBoutonsUtilisateurs() {
+    /**
+     *methode desctivant les boutons utilisables par l'utilisateur
+     */
+    public void desactiverBoutonsUtilisateurs() {
 
         for (Component composant : PanneauBoutonsVerticaux.getComponents()) {
             if (composant instanceof JButton) {
@@ -254,6 +273,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+            
                 new FenetrePrincipale().setVisible(true);
 
             }

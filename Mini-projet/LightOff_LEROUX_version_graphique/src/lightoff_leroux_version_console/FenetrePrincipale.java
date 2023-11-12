@@ -4,6 +4,7 @@
  */
 package lightoff_leroux_version_console;
 
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +27,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         initComponents();
         int nbLignes = 10;
         int nbColonnes = 10;
-        
 
         this.grille = new GrilleDeCellules(nbLignes, nbColonnes);
 
@@ -38,7 +38,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
             }
         }
-        
+
         this.initialiserPartie();
 
         ///
@@ -46,8 +46,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 nbColonnes * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
-        
-      
 
         PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
         getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 1 * 40, nbLignes * 40));
@@ -65,6 +63,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerLigneDeCellules(j);
                     repaint();
+                    finPartie();
                 }
             };
             bouton_ligne.addActionListener(ecouteurClick);
@@ -88,20 +87,19 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerColonneDeCellules(j);
                     repaint();
+                    finPartie();
                 }
             };
             bouton_colonne.addActionListener(ecouteurClick);
             PanneauBoutonsHorizontaux.add(bouton_colonne);
 
         }
-        
-        
 
     }
 
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
-        grille.melangerMatriceAleatoirement(10);
+        grille.melangerMatriceAleatoirement(1);
     }
 
     /**
@@ -117,7 +115,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauBoutonsVerticaux = new javax.swing.JPanel();
         PanneauBoutonsHorizontaux = new javax.swing.JPanel();
         btnDiagonaleDescendante = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnDiagonaleMontante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,12 +172,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         });
         getContentPane().add(btnDiagonaleDescendante, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 40, 40));
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDiagonaleMontante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDiagonaleMontanteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 40, 40));
+        getContentPane().add(btnDiagonaleMontante, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 40, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,13 +185,45 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void btnDiagonaleDescendanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagonaleDescendanteActionPerformed
         this.grille.activerDiagonaleDescendante();
         repaint();
+        finPartie();
     }//GEN-LAST:event_btnDiagonaleDescendanteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnDiagonaleMontanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagonaleMontanteActionPerformed
         this.grille.activerDiagonaleMontante();
         repaint();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        finPartie();
+    }//GEN-LAST:event_btnDiagonaleMontanteActionPerformed
 
+    public void finPartie() {
+        if (grille.cellulesToutesEteintes() == true) {
+            new FenetreVictoire().setVisible(true);
+            desactiverBoutonsUtilisateurs();
+        }
+    }
+
+    private void desactiverBoutonsUtilisateurs() {
+
+        for (Component composant : PanneauBoutonsVerticaux.getComponents()) {
+            if (composant instanceof JButton) {
+                JButton bouton = (JButton) composant;
+                bouton.setEnabled(false);
+            }
+        }
+
+        for (Component composant : PanneauBoutonsHorizontaux.getComponents()) {
+            if (composant instanceof JButton) {
+                JButton bouton = (JButton) composant;
+                bouton.setEnabled(false);
+            }
+        }
+        
+        btnDiagonaleMontante.setEnabled(false);
+        btnDiagonaleDescendante.setEnabled(false);
+            
+
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -225,7 +255,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetrePrincipale().setVisible(true);
-                
+
             }
         });
     }
@@ -235,6 +265,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton btnDiagonaleDescendante;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnDiagonaleMontante;
     // End of variables declaration//GEN-END:variables
 }
